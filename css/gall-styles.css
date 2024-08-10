@@ -1,0 +1,182 @@
+/* ------------------ BASIC STYLES -----------------------*/ 
+
+/* Basic reset */
+body, h1 {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #305CDE;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Navigation */
+.naviagtion {
+    float: right;
+    display: flex;
+    list-style: none;
+    padding: 30px 30px;
+    gap: 15px;
+}
+
+.naviagtion li {
+    display: inline; /* Horizontal layout */
+    margin-right: 10px;
+}
+
+.naviagtion a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .naviagtion {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+
+    .naviagtion li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* ------------------ GALLERY -----------------------*/ 
+
+/* Gallery Container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust to a minimum of 200px per item */
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Gallery Item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    padding-top: 100%; /* Keeps a 1:1 aspect ratio */
+}
+
+/* Adjust image and video to fit container */
+.gallery-item img,
+.gallery-item video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images and videos cover the container */
+    display: block;
+}
+
+/* ------------------ LIGHTBOX MODAL -----------------------*/ 
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Lightbox Content */
+.lightbox-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden; /* Prevents overflow */
+}
+
+/* Lightbox Image and Video */
+.lightbox-content img,
+.lightbox-content video {
+    max-width: 90vw; /* 90% of viewport width */
+    max-height: 90vh; /* 90% of viewport height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    top: 30px;
+    right: 70px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1001; /* Ensures controls are above lightbox content */
+}
+
+.btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.btn:hover {
+    color: #bbb;
+}
+
+/* Position the Previous and Next buttons */
+.controls-next {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.move-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001; /* Ensures buttons are above lightbox content */
+}
+
+.move-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
